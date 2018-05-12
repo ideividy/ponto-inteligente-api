@@ -1,5 +1,8 @@
 before_install:
   - chmod +x mvnw
+
+services:
+  - mysql
   
 language: java
 jdk:
