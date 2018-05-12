@@ -1,5 +1,6 @@
 before_install:
   - chmod +x mvnw
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS ponto_inteligente;'
 
 services:
   - mysql
