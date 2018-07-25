@@ -49,7 +49,7 @@ public class Funcionario implements Serializable{
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -118,7 +118,7 @@ public class Funcionario implements Serializable{
 	}
 	
 	@Transient
-	public Optional<Float> QtdHorasTrabalhadoDiaOpt(){
+	public Optional<Float> getQtdHorasTrabalhadoDiaOpt(){
 		return Optional.ofNullable(qtdHorasTrabalhadoDia);
 	}
 
@@ -132,7 +132,7 @@ public class Funcionario implements Serializable{
 	}
 	
 	@Transient
-	public Optional<Float> QtdHorasAlmocoOpt(){
+	public Optional<Float> getQtdHorasAlmocoOpt(){
 		return Optional.ofNullable(qtdHorasAlmoco);
 	}
 
