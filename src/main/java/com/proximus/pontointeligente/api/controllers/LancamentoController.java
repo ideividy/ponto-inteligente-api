@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -83,7 +84,7 @@ public class LancamentoController {
 	 * @return ResponseEntity<Response<LancamentoDto>>
 	 */
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Response<LancamentoDto>> listarPorId(@PathVariable("idd") Long id){
+	public ResponseEntity<Response<LancamentoDto>> listarPorId(@PathVariable("id") Long id){
 		log.info("Buscando lançamentos por ID {}", id);
 		Response<LancamentoDto> response = new Response<LancamentoDto>();
 		Optional<Lancamento> lancamento = this.lancamentoService.buscarPorId(id);
@@ -157,7 +158,7 @@ public class LancamentoController {
 		lancamento = this.lancamentoService.persistir(lancamento);
 		response.setData(this.converterLancamentoDto(lancamento));
 		
-		return null;
+		return ResponseEntity.ok(response);
 	}
 	
 	/**
@@ -166,7 +167,8 @@ public class LancamentoController {
 	 * @param id
 	 * @return ResponseEntity<Response<String>>
 	 */
-	@DeleteMapping
+	@DeleteMapping(value="/{id}")
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	public ResponseEntity<Response<String>> remover(@PathVariable("id") Long id){
 		log.info("Removendo lançamento: {}", id);
 		
