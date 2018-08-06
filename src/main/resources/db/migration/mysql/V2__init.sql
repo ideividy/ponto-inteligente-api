@@ -8,7 +8,7 @@ CREATE TABLE `empresa` (
 );
 
 CREATE TABLE `funcionario` (
-  `id` BIGINT(20) NOT NULL,
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `cpf` VARCHAR(200) NOT NULL,
   `data_atualizacao` DATETIME NOT NULL,
   `data_criacao` DATETIME NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE `funcionario` (
   
   
 CREATE TABLE `lancamento` (
-  `id` BIGINT(20) NOT NULL,
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `data` DATETIME NOT NULL,
   `data_criacao` DATETIME NOT NULL,
   `data_atualizacao` DATETIME NOT NULL,

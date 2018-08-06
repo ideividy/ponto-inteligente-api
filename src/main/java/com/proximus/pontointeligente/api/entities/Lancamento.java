@@ -38,7 +38,7 @@ public class Lancamento implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	public Long getId() {
 		return id;
 	}

@@ -25,7 +25,7 @@ public class FuncionarioServiceImpl implements FuncionarioService{
 	}
 	
 	public Optional<Funcionario> buscarPorEmail(String email) {
-		log.info("Buscando uma empresa para o Email: {}", email);
+		log.info("Buscando um funcionario pelo Email: {}", email);
 		return Optional.ofNullable(funcionarioRepository.findByEmail(email));
 	}	
 	
