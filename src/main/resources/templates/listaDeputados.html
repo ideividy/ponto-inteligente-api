@@ -1,0 +1,32 @@
+  <html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>k</title> 
+</head>
+<body>
+      <h2>Lista de Livros por Autor</h2>
+      <div th:unless="${#lists.isEmpty(deputados)}">
+            <dl th:each="deputado : ${deputados}">
+                  <dt class="bookHeadline">
+                        <span th:text="${deputado.nome}">Nome</span>
+                        <span th:text="${deputado.siglaPartido}">Partido</span> 
+                        <span th:text="${deputado.urlFoto}">FOTO</span>)
+  
+                  </dt>
+                  <dd class="bookDescription">
+                        <span th:if="${deputado.urlFoto}" th:text="${deputado.nome}">
+	                        <picture>
+								  <img src="${deputado.urlFoto}" alt="${deputado.nome}" style="width:auto;">
+							</picture>
+                        </span>
+                  </dd>
+            </dl>
+      </div>
+</body>
+<html>
+
