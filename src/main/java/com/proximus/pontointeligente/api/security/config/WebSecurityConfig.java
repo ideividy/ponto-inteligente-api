@@ -52,6 +52,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
+		/*httpSecurity
+        .authorizeRequests()
+            .antMatchers("/").permitAll()
+            .antMatchers("/api/*").hasRole("ADMIN")
+            .antMatchers("/usuario").hasRole("USUARIO")
+            .anyRequest().authenticated()
+            .and()
+        .exceptionHandling()
+            .accessDeniedPage("/negado")
+            .and()
+        .formLogin()
+            .loginPage("/login")
+            .usernameParameter("login")
+            .passwordParameter("senha")
+            .failureUrl("/login?error=1")
+            .permitAll()
+            .and()
+        .logout()
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/login?logout")
+            .invalidateHttpSession(true)
+            .permitAll();*/
+		
 		httpSecurity.csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
 				.antMatchers("/auth/**", "/api/deputados/", "/api/cadastrar-pj", "/api/cadastrar-pf", "/v2/api-docs",
